@@ -11,11 +11,12 @@ setInterval(function () {
     const date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
 
 
     hours = addZero(hours);
     minutes = addZero(minutes);
-    document.querySelector('.time').innerHTML = `${hours}:${minutes}`;
+    document.querySelector('.time').innerHTML = `${hours}:${minutes}:${seconds}`;
 }, 1000)
 
 $('.trigger').click(function () {
