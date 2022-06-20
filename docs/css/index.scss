@@ -21,6 +21,10 @@
 
 }
 
+body {
+    overflow-y: hidden;
+}
+
 .logo-opening {
     animation-name: logoopening;
     animation-fill-mode: forwards;
@@ -77,30 +81,50 @@
     .navigation {
         width: 200px;
         height: 7vh;
-        display: flex;
-        justify-content: space-between;
         padding: 0 1%;
         position: absolute;
         left: 50%;
-        background: rgb(0, 0, 0);
+        transition: all ease-in-out .2s;
         bottom: 1%;
         transform: translate(-50%, 0);
         background: white;
-        align-items: center;
         border-radius: 20px;
 
-        div {
-            transition: all ease-in-out .3s;
+        .wrap-nav {
+            transition: all ease-in-out .2s;
+            height: 100%;
+            width: 100%;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            i {
-                font-size: 25px;
-                color: #391878;
+            div {
+
+                transition: all ease-in-out .3s;
+
+                i {
+                    font-size: 25px;
+                    color: #391878;
+                }
+            }
+
+            div:hover {
+                transform: scale(1.2);
             }
         }
 
-        div:hover {
-            transform: scale(1.2);
+        .wrap-nav.active {
+            height: 10vh !important;
         }
+
+
+    }
+
+    .navigation.active {
+        align-items: flex-start;
+        height: 30vh !important;
+        padding: 0 1%;
     }
 
     .top-nav {
@@ -134,6 +158,106 @@
     }
 }
 
+.second {
+    visibility: hidden;
+    pointer-events: none;
+    display: none !important;
+}
+
+.second.active {
+    display: flex !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+}
+
+.trigger {
+    height: 7vh;
+    background: white;
+    position: absolute;
+    bottom: 1%;
+    width: 7vh;
+    cursor: pointer;
+
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 60%;
+    transform: translate(-60%, 0);
+
+    i {
+        transition: all ease-in-out .2s;
+        font-size: 1.5rem;
+        color: #391878;
+    }
+
+    i.active {
+        transform: rotate(180deg);
+    }
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    font-family: 'Montserrat';
+    color: #391878;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all ease-in-out .2s
+}
+
+.btn:hover {
+    background: #391878;
+    color: white;
+}
+
+
+.shop-list {
+    width: 300px;
+    background: white;
+    border-radius: 20px;
+    height: 80vh;
+    transition: all ease-in-out .2s;
+    position: absolute;
+    right: 5%;
+    bottom: -100%;
+
+    .col {
+        width: 100%;
+        min-height: 10vh;
+
+        display: flex;
+        padding: 0 10px;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+
+        h1,
+        p {
+            font-family: 'Montserrat';
+            color:#391878;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+        }
+    }
+
+    .gap {
+        width: 90%;
+        height: 1px;
+        background: rgba(57, 24, 120,0.1);
+        margin: 0 auto;
+    }
+
+}
+
+.shop-list.active {
+    bottom: 1%;
+}
+
 @keyframes bgopening {
     0% {
         left: 0;
@@ -146,11 +270,13 @@
         left: 0;
         opacity: 1;
     }
-    60%{
+
+    60% {
         visibility: visible;
         left: 0;
         opacity: 1;
     }
+
     99% {
         visibility: visible;
         opacity: 1;
@@ -168,16 +294,19 @@
         left: -50%;
         visibility: visible;
     }
-    5%{
+
+    5% {
         opacity: 1;
         left: -50%;
         visibility: visible;
     }
-    50%{
+
+    50% {
         left: 50%;
         opacity: 1;
         visibility: visible;
     }
+
     60% {
         left: 50%;
         opacity: 1;

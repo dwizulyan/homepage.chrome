@@ -21,6 +21,10 @@
           animation-fill-mode: forwards;
 }
 
+body {
+  overflow-y: hidden;
+}
+
 .logo-opening {
   -webkit-animation-name: logoopening;
           animation-name: logoopening;
@@ -82,39 +86,61 @@
 .cover .navigation {
   width: 200px;
   height: 7vh;
+  padding: 0 1%;
+  position: absolute;
+  left: 50%;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+  bottom: 1%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  background: white;
+  border-radius: 20px;
+}
+
+.cover .navigation .wrap-nav {
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+  height: 100%;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 1%;
-  position: absolute;
-  left: 50%;
-  background: black;
-  bottom: 1%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-  background: white;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 20px;
 }
 
-.cover .navigation div {
+.cover .navigation .wrap-nav div {
   -webkit-transition: all ease-in-out .3s;
   transition: all ease-in-out .3s;
 }
 
-.cover .navigation div i {
+.cover .navigation .wrap-nav div i {
   font-size: 25px;
   color: #391878;
 }
 
-.cover .navigation div:hover {
+.cover .navigation .wrap-nav div:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.cover .navigation .wrap-nav.active {
+  height: 10vh !important;
+}
+
+.cover .navigation.active {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 30vh !important;
+  padding: 0 1%;
 }
 
 .cover .top-nav {
@@ -154,6 +180,124 @@
   color: white;
   font-family: 'Montserrat';
   text-decoration: none;
+}
+
+.second {
+  visibility: hidden;
+  pointer-events: none;
+  display: none !important;
+}
+
+.second.active {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  visibility: visible !important;
+  pointer-events: all !important;
+}
+
+.trigger {
+  height: 7vh;
+  background: white;
+  position: absolute;
+  bottom: 1%;
+  width: 7vh;
+  cursor: pointer;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 60%;
+  -webkit-transform: translate(-60%, 0);
+          transform: translate(-60%, 0);
+}
+
+.trigger i {
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+  font-size: 1.5rem;
+  color: #391878;
+}
+
+.trigger i.active {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  font-family: 'Montserrat';
+  color: #391878;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+}
+
+.btn:hover {
+  background: #391878;
+  color: white;
+}
+
+.shop-list {
+  width: 300px;
+  background: white;
+  border-radius: 20px;
+  height: 80vh;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+  position: absolute;
+  right: 5%;
+  bottom: -100%;
+}
+
+.shop-list .col {
+  width: 100%;
+  min-height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 10px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.shop-list .col h1,
+.shop-list .col p {
+  font-family: 'Montserrat';
+  color: #391878;
+}
+
+.shop-list .col h1 {
+  font-size: 1.2rem;
+}
+
+.shop-list .gap {
+  width: 90%;
+  height: 1px;
+  background: rgba(57, 24, 120, 0.1);
+  margin: 0 auto;
+}
+
+.shop-list.active {
+  bottom: 1%;
 }
 
 @-webkit-keyframes bgopening {
